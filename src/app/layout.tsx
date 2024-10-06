@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { NextUIProvider } from "@nextui-org/react";
+import { Providers } from "./providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,11 +13,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <NextUIProvider>
-      <html lang="en">
-        <body>{children}</body>
-      </html>
-    </NextUIProvider>
+    <html lang="en">
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
 
   );
 }
